@@ -1,0 +1,7 @@
+D:\Documents\POLYTECH\SI4\ServiceOriented\MathsLibrary\MathsLibrary\bin\Debug\MathsLibrary.dll.config
+D:\Documents\POLYTECH\SI4\ServiceOriented\MathsLibrary\MathsLibrary\bin\Debug\MathsLibrary.dll
+D:\Documents\POLYTECH\SI4\ServiceOriented\MathsLibrary\MathsLibrary\bin\Debug\MathsLibrary.pdb
+D:\Documents\POLYTECH\SI4\ServiceOriented\MathsLibrary\MathsLibrary\obj\Debug\MathsLibrary.csprojResolveAssemblyReference.cache
+D:\Documents\POLYTECH\SI4\ServiceOriented\MathsLibrary\MathsLibrary\obj\Debug\MathsLibrary.csproj.CoreCompileInputs.cache
+D:\Documents\POLYTECH\SI4\ServiceOriented\MathsLibrary\MathsLibrary\obj\Debug\MathsLibrary.dll
+D:\Documents\POLYTECH\SI4\ServiceOriented\MathsLibrary\MathsLibrary\obj\Debug\MathsLibrary.pdb

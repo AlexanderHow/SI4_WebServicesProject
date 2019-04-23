@@ -1,0 +1,6 @@
+D:\Documents\POLYTECH\SI4\ServiceOriented\MathsLibrary\ClientWCF\bin\Debug\ClientWCF.exe.config
+D:\Documents\POLYTECH\SI4\ServiceOriented\MathsLibrary\ClientWCF\bin\Debug\ClientWCF.exe
+D:\Documents\POLYTECH\SI4\ServiceOriented\MathsLibrary\ClientWCF\bin\Debug\ClientWCF.pdb
+D:\Documents\POLYTECH\SI4\ServiceOriented\MathsLibrary\ClientWCF\obj\Debug\ClientWCF.csproj.CoreCompileInputs.cache
+D:\Documents\POLYTECH\SI4\ServiceOriented\MathsLibrary\ClientWCF\obj\Debug\ClientWCF.exe
+D:\Documents\POLYTECH\SI4\ServiceOriented\MathsLibrary\ClientWCF\obj\Debug\ClientWCF.pdb
