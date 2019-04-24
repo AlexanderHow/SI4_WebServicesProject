@@ -1,0 +1,11 @@
+D:\files\Polytech\webService\TD3\ConsoleAppJamaisAPatte\ConsoleAppJamaisAPatte\bin\Debug\ConsoleAppJamaisAPatte.exe.config
+D:\files\Polytech\webService\TD3\ConsoleAppJamaisAPatte\ConsoleAppJamaisAPatte\bin\Debug\ConsoleAppJamaisAPatte.exe
+D:\files\Polytech\webService\TD3\ConsoleAppJamaisAPatte\ConsoleAppJamaisAPatte\bin\Debug\ConsoleAppJamaisAPatte.pdb
+D:\files\Polytech\webService\TD3\ConsoleAppJamaisAPatte\ConsoleAppJamaisAPatte\obj\Debug\ConsoleAppJamaisAPatte.csprojAssemblyReference.cache
+D:\files\Polytech\webService\TD3\ConsoleAppJamaisAPatte\ConsoleAppJamaisAPatte\obj\Debug\ConsoleAppJamaisAPatte.csproj.CoreCompileInputs.cache
+D:\files\Polytech\webService\TD3\ConsoleAppJamaisAPatte\ConsoleAppJamaisAPatte\obj\Debug\ConsoleAppJamaisAPatte.exe
+D:\files\Polytech\webService\TD3\ConsoleAppJamaisAPatte\ConsoleAppJamaisAPatte\obj\Debug\ConsoleAppJamaisAPatte.pdb
+D:\files\Polytech\webService\TD3\ConsoleAppJamaisAPatte\ConsoleAppJamaisAPatte\bin\Debug\Newtonsoft.Json.dll
+D:\files\Polytech\webService\TD3\ConsoleAppJamaisAPatte\ConsoleAppJamaisAPatte\bin\Debug\Newtonsoft.Json.pdb
+D:\files\Polytech\webService\TD3\ConsoleAppJamaisAPatte\ConsoleAppJamaisAPatte\bin\Debug\Newtonsoft.Json.xml
+D:\files\Polytech\webService\TD3\ConsoleAppJamaisAPatte\ConsoleAppJamaisAPatte\obj\Debug\ConsoleAppJamaisAPatte.csproj.CopyComplete
