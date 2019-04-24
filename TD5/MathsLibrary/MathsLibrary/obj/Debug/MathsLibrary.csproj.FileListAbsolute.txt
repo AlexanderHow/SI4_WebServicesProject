@@ -1,0 +1,6 @@
+D:\files\Polytech\webService\TD5\MathsLibrary\MathsLibrary\bin\Debug\MathsLibrary.dll.config
+D:\files\Polytech\webService\TD5\MathsLibrary\MathsLibrary\bin\Debug\MathsLibrary.dll
+D:\files\Polytech\webService\TD5\MathsLibrary\MathsLibrary\bin\Debug\MathsLibrary.pdb
+D:\files\Polytech\webService\TD5\MathsLibrary\MathsLibrary\obj\Debug\MathsLibrary.csproj.CoreCompileInputs.cache
+D:\files\Polytech\webService\TD5\MathsLibrary\MathsLibrary\obj\Debug\MathsLibrary.dll
+D:\files\Polytech\webService\TD5\MathsLibrary\MathsLibrary\obj\Debug\MathsLibrary.pdb

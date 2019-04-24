@@ -1,0 +1,7 @@
+D:\files\Polytech\webService\TD4\RESTServer\RESTServer\obj\Debug\RESTServer.csprojAssemblyReference.cache
+D:\files\Polytech\webService\TD4\RESTServer\RESTServer\obj\Debug\RESTServer.csproj.CoreCompileInputs.cache
+D:\files\Polytech\webService\TD4\RESTServer\RESTServer\bin\Debug\RESTServer.dll.config
+D:\files\Polytech\webService\TD4\RESTServer\RESTServer\bin\Debug\RESTServer.dll
+D:\files\Polytech\webService\TD4\RESTServer\RESTServer\bin\Debug\RESTServer.pdb
+D:\files\Polytech\webService\TD4\RESTServer\RESTServer\obj\Debug\RESTServer.dll
+D:\files\Polytech\webService\TD4\RESTServer\RESTServer\obj\Debug\RESTServer.pdb

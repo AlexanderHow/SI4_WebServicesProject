@@ -1,0 +1,7 @@
+D:\files\Polytech\webService\TD5\MathsLibrary\ClientTest\bin\Debug\ClientTest.exe.config
+D:\files\Polytech\webService\TD5\MathsLibrary\ClientTest\bin\Debug\ClientTest.exe
+D:\files\Polytech\webService\TD5\MathsLibrary\ClientTest\bin\Debug\ClientTest.pdb
+D:\files\Polytech\webService\TD5\MathsLibrary\ClientTest\obj\Debug\ClientTest.csprojAssemblyReference.cache
+D:\files\Polytech\webService\TD5\MathsLibrary\ClientTest\obj\Debug\ClientTest.csproj.CoreCompileInputs.cache
+D:\files\Polytech\webService\TD5\MathsLibrary\ClientTest\obj\Debug\ClientTest.exe
+D:\files\Polytech\webService\TD5\MathsLibrary\ClientTest\obj\Debug\ClientTest.pdb
