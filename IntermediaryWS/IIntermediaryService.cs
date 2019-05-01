@@ -7,17 +7,20 @@ using System.Text;
 
 namespace IntermediaryWS
 {
-    // REMARQUE : vous pouvez utiliser la commande Renommer du menu Refactoriser pour changer le nom d'interface "IService1" à la fois dans le code et le fichier de configuration.
     [ServiceContract]
-    public interface IService1
+    public interface IIntermerdiaryService
     {
         [OperationContract]
-        string GetData(int value);
+        List<string> GetCities();
 
         [OperationContract]
-        CompositeType GetDataUsingDataContract(CompositeType composite);
+        List<string> GetStations(string city);
 
-        // TODO: ajoutez vos opérations de service ici
+        [OperationContract]
+        string GetNbBikes(string station);
+
+        [OperationContract]
+        List<string> GetNbBikesInStations(string station);
     }
 
     // Utilisez un contrat de données comme indiqué dans l'exemple ci-après pour ajouter les types composites aux opérations de service.
