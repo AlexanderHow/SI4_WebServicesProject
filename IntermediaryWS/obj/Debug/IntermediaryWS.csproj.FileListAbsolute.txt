@@ -1,0 +1,9 @@
+D:\files\Polytech\projetWebService\v2.0\SI4_WebServicesProject\IntermediaryWS\bin\Debug\IntermediaryWS.dll.config
+D:\files\Polytech\projetWebService\v2.0\SI4_WebServicesProject\IntermediaryWS\bin\Debug\IntermediaryWS.dll
+D:\files\Polytech\projetWebService\v2.0\SI4_WebServicesProject\IntermediaryWS\bin\Debug\IntermediaryWS.pdb
+D:\files\Polytech\projetWebService\v2.0\SI4_WebServicesProject\IntermediaryWS\bin\Debug\Newtonsoft.Json.dll
+D:\files\Polytech\projetWebService\v2.0\SI4_WebServicesProject\IntermediaryWS\bin\Debug\Newtonsoft.Json.xml
+D:\files\Polytech\projetWebService\v2.0\SI4_WebServicesProject\IntermediaryWS\obj\Debug\IntermediaryWS.csproj.CoreCompileInputs.cache
+D:\files\Polytech\projetWebService\v2.0\SI4_WebServicesProject\IntermediaryWS\obj\Debug\IntermediaryWS.csproj.CopyComplete
+D:\files\Polytech\projetWebService\v2.0\SI4_WebServicesProject\IntermediaryWS\obj\Debug\IntermediaryWS.dll
+D:\files\Polytech\projetWebService\v2.0\SI4_WebServicesProject\IntermediaryWS\obj\Debug\IntermediaryWS.pdb

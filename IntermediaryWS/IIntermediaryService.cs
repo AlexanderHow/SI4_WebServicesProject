@@ -4,6 +4,7 @@ using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace IntermediaryWS
 {
@@ -11,16 +12,31 @@ namespace IntermediaryWS
     public interface IIntermerdiaryService
     {
         [OperationContract]
-        List<string> GetCities();
+        Task<string> GetStations();
 
         [OperationContract]
-        List<string> GetStations(string city);
+        Task<string> GetStations(string city);
 
         [OperationContract]
-        string GetNbBikes(string station);
+        Task<string> GetStation(string idStation, string contractName);
 
         [OperationContract]
-        List<string> GetNbBikesInStations(string station);
+        Task<string> GetNbBikes(string idStation, string contractName);
+
+        [OperationContract]
+        Task<string> GetNbBikes(string city);
+
+        [OperationContract]
+        Task<string> GetPosition(string idStation, string contractName);
+
+        [OperationContract]
+        Task<string> GetPositions(string city);
+
+        [OperationContract]
+        Task<string> GetContracts();
+
+        [OperationContract]
+        Task<string> GetContract(string contractName);
     }
 
     // Utilisez un contrat de données comme indiqué dans l'exemple ci-après pour ajouter les types composites aux opérations de service.
