@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="3f2cf8ea-bf5d-4e66-9823-b20ee557e326" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8733/IntermediaryWS" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="IntermediaryWS.xsd" MetadataType="Schema" ID="f9c5db19-2fe5-44ae-aae8-962d8003348b" SourceId="1" SourceUrl="http://localhost:8733/IntermediaryWS?xsd=xsd1" />
+    <MetadataFile FileName="IntermediaryWS.disco" MetadataType="Disco" ID="e33e5006-1bc6-4fac-98f4-dedf077775db" SourceId="1" SourceUrl="http://localhost:8733/IntermediaryWS?disco" />
+    <MetadataFile FileName="IntermediaryService.wsdl" MetadataType="Wsdl" ID="2d43512f-cbe8-426a-a28e-e01041ed452b" SourceId="1" SourceUrl="http://localhost:8733/IntermediaryWS?wsdl" />
+    <MetadataFile FileName="IntermediaryWS1.xsd" MetadataType="Schema" ID="45e07fe0-f3e5-409a-830b-c0016ea4aae7" SourceId="1" SourceUrl="http://localhost:8733/IntermediaryWS?xsd=xsd0" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>
