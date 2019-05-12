@@ -11,8 +11,6 @@ namespace IntermediaryWS
 
     public class IntermediaryService : IIntermediaryService
     {
-        private static List<string> defaultInitCache = new List<string>() { "stations" };
-        private CacheManager cache = new CacheManager(defaultInitCache);
 
         public IntermediaryService()
         {
@@ -24,14 +22,14 @@ namespace IntermediaryWS
         {
             Dictionary<string, string> addParam = new Dictionary<string, string>();
             addParam.Add("name", city);
-            string result = await cache.manageRequest("contracts", addParam);
+            string result = await CacheManager.Instance.manageRequest("contracts", addParam);
             return result;
         }
 
         public async Task<string> GetCities()
         {
             Dictionary<string, string> addParam = new Dictionary<string, string>();
-            string result = await cache.manageRequest("contracts", addParam);
+            string result = await CacheManager.Instance.manageRequest("contracts", addParam);
             return result;
         }
 
@@ -39,7 +37,7 @@ namespace IntermediaryWS
         {
             Dictionary<string, string> addParam = new Dictionary<string, string>();
             addParam.Add("contract_name", city.ToLower());
-            string result = await cache.manageRequest("stations/" + idStation + "/available_bikes", addParam);
+            string result = await CacheManager.Instance.manageRequest("stations/" + idStation + "/available_bikes", addParam);
             return result;
         }
 
@@ -47,7 +45,7 @@ namespace IntermediaryWS
         {
             Dictionary<string, string> addParam = new Dictionary<string, string>();
             addParam.Add("contract_name", city.ToLower());
-            string result = await cache.manageRequest("stations/available_bikes", addParam);
+            string result = await CacheManager.Instance.manageRequest("stations/available_bikes", addParam);
             return result;
         }
 
@@ -55,7 +53,7 @@ namespace IntermediaryWS
         {
             Dictionary<string, string> addParam = new Dictionary<string, string>();
             addParam.Add("contract_name", city.ToLower());
-            string result = await cache.manageRequest("stations/" + idStation + "/position", addParam);
+            string result = await CacheManager.Instance.manageRequest("stations/" + idStation + "/position", addParam);
             return result;
         }
 
@@ -63,7 +61,7 @@ namespace IntermediaryWS
         {
             Dictionary<string, string> addParam = new Dictionary<string, string>();
             addParam.Add("contract_name", city.ToLower());
-            string result = await cache.manageRequest("stations/position", addParam);
+            string result = await CacheManager.Instance.manageRequest("stations/position", addParam);
             return result;
         }
 
@@ -71,14 +69,14 @@ namespace IntermediaryWS
         {
             Dictionary<string, string> addParam = new Dictionary<string, string>();
             addParam.Add("contract_name", city.ToLower());
-            string result = await cache.manageRequest("stations/"+idStation, addParam);
+            string result = await CacheManager.Instance.manageRequest("stations/"+idStation, addParam);
             return result;
         }
 
         public async Task<string> GetStations()
         {
             Dictionary<string, string> addParam = new Dictionary<string, string>();
-            string result = await cache.manageRequest("stations", addParam);
+            string result = await CacheManager.Instance.manageRequest("stations", addParam);
             return result;
         }
 
@@ -86,7 +84,7 @@ namespace IntermediaryWS
         {
             Dictionary<string, string> addParam = new Dictionary<string, string>();
             addParam.Add("contract_name", city.ToLower());
-            string result = await cache.manageRequest("stations", addParam);
+            string result = await CacheManager.Instance.manageRequest("stations", addParam);
             return result;
         }
     }

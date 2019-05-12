@@ -7,18 +7,25 @@ using System.IO;
 using System.Net;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System.Diagnostics;
 
 namespace IntermediaryWS
 {
-    class CacheManager
+    public sealed class CacheManager
     {
+        private static readonly List<string> defaultInitCache = new List<string>() { "stations" };
+        private static readonly Lazy<CacheManager> lazy =
+        new Lazy<CacheManager>(() => new CacheManager(defaultInitCache));
+
+        public static CacheManager Instance { get { return lazy.Value; } }
+
         private string APYKEY = "030659a64d21952287040f96eba110fa0db31d7d";
         private string ROOTURL = "https://api.jcdecaux.com/vls/v1/";
         private string WRONGRQT = @"{ 'value' : 'Wrong request'}";
         private Dictionary<String, String> cache = new Dictionary<string, string>();
         private List<String> defaultRequestList = new List<string>();
 
-        public CacheManager(List<String> defaultRqts)
+        private CacheManager(List<String> defaultRqts)
         {
             this.defaultRequestList.AddRange(defaultRqts);
             intiCache();
@@ -26,6 +33,9 @@ namespace IntermediaryWS
 
         private void intiCache()
         {
+            System.Diagnostics.Debug.WriteLine("reset CC" +defaultRequestList[0]+ "\n");
+            this.cache = new Dictionary<string, string>();
+            Stopwatch sw = new Stopwatch();
             WebRequest request = null;
             StreamReader reader = null;
             WebResponse response = null;
@@ -33,12 +43,17 @@ namespace IntermediaryWS
             string tmpUrl;
             foreach (string url in this.defaultRequestList)
             {
+                Monitoring.Instance.countRqtToJCDCo(1);
+                sw.Start();
                 tmpUrl = ROOTURL + url + "?apiKey=" + APYKEY;
                 request = WebRequest.Create(tmpUrl);
                 response = request.GetResponse();
                 dataStream = response.GetResponseStream();
                 reader = new StreamReader(dataStream);
                 this.cache.Add(url, reader.ReadToEnd());
+                sw.Stop();
+                Monitoring.Instance.countAverageTimePerRqt(sw.ElapsedMilliseconds);
+                sw.Reset();
             }
             if (reader != null)
             {
@@ -48,27 +63,45 @@ namespace IntermediaryWS
             {
                 response.Close();
             }
+            Monitoring.Instance.LastRqtDate = DateTime.Now;
         }
 
         public async Task<string> manageRequest(string baseUrl, Dictionary<string, string> additionalParams)
         {
+            if (Monitoring.Instance.doesNeedToReset())
+            {
+                System.Diagnostics.Debug.WriteLine("reset \n");
+                this.intiCache();
+            }
+
+            Monitoring.Instance.LastRqtDate = DateTime.Now;
+
+            Stopwatch sw = new Stopwatch();
             string result;
+            sw.Start();
+
             //search in cache
             foreach (KeyValuePair<string, string> cachentry in this.cache)
             {
                 if (baseUrl.StartsWith(cachentry.Key))
                 {
+                    System.Diagnostics.Debug.WriteLine("found " + cachentry.Key + "\n");
                     result = await retrieveFromCache(cachentry.Key, baseUrl, additionalParams);
+                    sw.Stop();
+                    Monitoring.Instance.countAverageTimePerRqt(sw.ElapsedMilliseconds);
                     return result;
                 }
             }
             result = await doRequest(baseUrl, additionalParams);
+            sw.Stop();
+            Monitoring.Instance.countAverageTimePerRqt(sw.ElapsedMilliseconds);
             return result;
         }
 
         //TODO : generalize request to optimize cache + return a retrieve on result
         private async Task<string> doRequest(string baseUrl, Dictionary<string, string> additionalParams)
         {
+            Monitoring.Instance.countRqtToJCDCo(1);
             //build url
             string url = ROOTURL + baseUrl + "?";
             foreach (KeyValuePair<string, string> entry in additionalParams)
@@ -84,15 +117,16 @@ namespace IntermediaryWS
             Stream dataStream = response.GetResponseStream();
             StreamReader reader = new StreamReader(dataStream);
             string responseFromServer = reader.ReadToEnd();
-
+            
             //add to cache result
             this.cache.Add(baseUrl, responseFromServer);
-
+            System.Diagnostics.Debug.WriteLine("add " + baseUrl + " " + this.cache.ContainsKey(baseUrl)+ "\n");
             return responseFromServer;
         }
 
         private async Task<string> retrieveFromCache(string key, string baseUrl, Dictionary<string, string> additionalParams)
         {
+            Monitoring.Instance.countRqtFromCache(1);
             string restUrl = baseUrl.Replace(key, "");
             string[] diffUrl = (restUrl.Contains("/")) ? restUrl.Remove(0, 1).Split('/') : new string[0];
             string cacheResult = this.cache[key];
@@ -188,11 +222,6 @@ namespace IntermediaryWS
                             return WRONGRQT;
                         }
                     }
-                    /*else non strict ici
-                    {
-                        System.Diagnostics.Debug.WriteLine("4\n");
-                        return WRONGRQT;
-                    }*/
                 }
                 return jObjectFromCache.ToString();
             }
