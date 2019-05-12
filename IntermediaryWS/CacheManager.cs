@@ -18,7 +18,7 @@ namespace IntermediaryWS
         private Dictionary<String, String> cache = new Dictionary<string, string>();
         private List<String> defaultRequestList = new List<string>();
 
-        public CacheManager (List<String> defaultRqts)
+        public CacheManager(List<String> defaultRqts)
         {
             this.defaultRequestList.AddRange(defaultRqts);
             intiCache();
@@ -93,7 +93,8 @@ namespace IntermediaryWS
 
         private async Task<string> retrieveFromCache(string key, string baseUrl, Dictionary<string, string> additionalParams)
         {
-            string[] diffUrl = baseUrl.Replace(key, "").Split('/');
+            string restUrl = baseUrl.Replace(key, "");
+            string[] diffUrl = (restUrl.Contains("/")) ? restUrl.Remove(0, 1).Split('/') : new string[0];
             string cacheResult = this.cache[key];
             if (cacheResult.StartsWith("{")) //it's a jsonObject
             {
@@ -127,19 +128,19 @@ namespace IntermediaryWS
             //proceedNext pour chaque element, add le return dans une array si c'est pas une WrongRQT
             string result = "[ ";
             string tmp;
-
             foreach (JObject obj in jArrayFromCache)
             {
                 tmp = dealWithJsonObject(obj, diffUrl, v, additionalParams);
+
                 if (!tmp.Equals(WRONGRQT))
                 {
+
                     result = result + tmp + ",";
                 }
             }
 
             result = result.Remove(result.Length - 1);
             result = result + " ]";
-
             return result;
         }
 
@@ -152,6 +153,7 @@ namespace IntermediaryWS
                 {
                     if (!jObjectFromCache[entry.Key].ToString().Equals(entry.Value)) //wrong value of property WARNiNG case sensitive
                     {
+                        //System.Diagnostics.Debug.WriteLine("1 "+ jObjectFromCache[entry.Key].ToString() + " " + entry.Value+ "\n");
                         return WRONGRQT;
                     }
                 }
@@ -186,10 +188,11 @@ namespace IntermediaryWS
                             return WRONGRQT;
                         }
                     }
-                    else
+                    /*else non strict ici
                     {
+                        System.Diagnostics.Debug.WriteLine("4\n");
                         return WRONGRQT;
-                    }
+                    }*/
                 }
                 return jObjectFromCache.ToString();
             }
