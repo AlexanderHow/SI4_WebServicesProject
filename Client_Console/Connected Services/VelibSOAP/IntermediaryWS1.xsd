@@ -30,7 +30,7 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="idStation" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="contractName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="city" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -45,7 +45,7 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="idStation" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="contractName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="city" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -74,7 +74,7 @@
     <xs:complexType>
       <xs:sequence>
         <xs:element minOccurs="0" name="idStation" nillable="true" type="xs:string" />
-        <xs:element minOccurs="0" name="contractName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="city" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
@@ -99,29 +99,29 @@
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetContracts">
+  <xs:element name="GetCities">
     <xs:complexType>
       <xs:sequence />
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetContractsResponse">
+  <xs:element name="GetCitiesResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="GetContractsResult" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="GetCitiesResult" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetContract">
+  <xs:element name="GetCity">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="contractName" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="city" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>
-  <xs:element name="GetContractResponse">
+  <xs:element name="GetCityResponse">
     <xs:complexType>
       <xs:sequence>
-        <xs:element minOccurs="0" name="GetContractResult" nillable="true" type="xs:string" />
+        <xs:element minOccurs="0" name="GetCityResult" nillable="true" type="xs:string" />
       </xs:sequence>
     </xs:complexType>
   </xs:element>

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Client_Console.VelibSOAP;
+using Newtonsoft.Json.Linq;
 
 namespace Client_Console
 {
@@ -17,12 +18,11 @@ namespace Client_Console
 
             Console.WriteLine("---Commandes disponibles---");
             Console.WriteLine("villes --- liste des villes disponibles");
-            Console.WriteLine("stations --- liste de toutes les stations");
             Console.WriteLine("stations <ville> --- liste des stations d'une ville");
-            Console.WriteLine("velibS <station> --- nombre de velibs sur une station");
-            Console.WriteLine("velibC <ville> --- nombre de velibs sur une ville");
-            Console.WriteLine("position <station> --- position d'une station");
-            Console.WriteLine("positions <ville> --- position des stations d'une ville");
+            Console.WriteLine("velibS <idstation> <ville> --- nombre de velibs disponibles sur une station");
+            Console.WriteLine("velibC <ville> --- nombre de velibs disponibles sur une ville");
+            Console.WriteLine("position <idstation> <ville>  --- position d'une station");
+            Console.WriteLine("help --- afficher les commandes");
             Console.WriteLine("quitter --- quitter l'application");
 
             string input = "";
@@ -40,51 +40,85 @@ namespace Client_Console
 
                 if (argsT[0] == "quit")
                 {
-                    break;
+                    Environment.Exit(0);
+                }
+                else if (argsT[0] == "help")
+                {
+                    Console.WriteLine("---Commandes disponibles---");
+                    Console.WriteLine("villes --- liste des villes disponibles");
+                    Console.WriteLine("stations <ville> --- liste des stations d'une ville");
+                    Console.WriteLine("velibS <idstation> <ville> --- nombre de velibs sur une station");
+                    Console.WriteLine("velibC <ville> --- nombre de velibs sur une ville");
+                    Console.WriteLine("position <idstation> <ville> --- position d'une station");
+                    Console.WriteLine("help --- afficher les commandes");
+                    Console.WriteLine("quitter --- quitter l'application");
+                }
+                else if (argsT[0] == "villes")
+                {
+                    string cities = serviceClient.GetCities();
+                    showCorrectData(cities, "name");
                 }
                 else if (argsT[0] == "stations")
                 {
                     if (argsT.Length > 1 && argsT.Length < 3)
                     {
-                        string station = serviceClient.GetStationsCity(argsT[1]);
-                        Console.WriteLine(station);
-                    }
-                    else
+                        string stations = serviceClient.GetStationsCity(argsT[1]);
+                        showCorrectData(stations, "name");
+                    } else
                     {
-                        string station = serviceClient.GetStations();
-                        Console.WriteLine(station);
+                        Console.WriteLine("Argument Manquant");
                     }
                 }
                 else if (argsT[0] == "velibS")
                 {
-                    if (argsT.Length > 1 && argsT.Length < 3)
+                    if (argsT.Length > 2 && argsT.Length < 4)
                     {
-                        //string dispo = serviceClient.GetNbBikes(argsT[1]);
-                        //Console.WriteLine(dispo);
+                        string dispo = serviceClient.GetNbBikes(argsT[1], argsT[2]);
+                        dispo = dispo.Substring(2, dispo.Length-3);
+                        Console.WriteLine("Nombre de vélibs disponibles : " + dispo);
                     }
                 }
                 else if (argsT[0] == "velibC")
                 {
                     if (argsT.Length > 1 && argsT.Length < 3)
                     {
+                        int nbVelib = 0;
+                        int tmp = 0;
                         string dispo = serviceClient.GetNbBikesCity(argsT[1]);
-                        Console.WriteLine(dispo);
+                        dispo = dispo.Substring(2, dispo.Length - 3);
+                        string[] result = dispo.Split(',');
+                        foreach (string s in result)
+                        {
+                            tmp = Int32.Parse(s);
+                            nbVelib += tmp;
+                        }
+                        Console.WriteLine("Nombre de vélibs disponibles à " + argsT[1] + " : " + nbVelib);
                     }
                 }
                 else if (argsT[0] == "position")
                 {
-                    if (argsT.Length > 1 && argsT.Length < 3)
+                    if (argsT.Length > 2 && argsT.Length < 4)
                     {
-                        //string position = serviceClient.GetPosition(argsT[1]);
-                        //Console.WriteLine(position);
+                        string position = serviceClient.GetPosition(argsT[1], argsT[2]);
+                        Console.Write("Latitude : ");
+                        showCorrectData(position, "lat");
+                        Console.Write("Longitude : ");
+                        showCorrectData(position, "lng");
                     }
                 }
-                else if (argsT[0] == "velibC")
+            }
+        }
+
+        static void showCorrectData(string input, string attribute)
+        {
+            JArray jArray = JArray.Parse(input);
+            foreach (JObject o in jArray.Children<JObject>())
+            {
+                foreach (JProperty p in o.Properties())
                 {
-                    if (argsT.Length > 1 && argsT.Length < 3)
+                    if (p.Name.Equals(attribute))
                     {
-                        string positions = serviceClient.GetPositions(argsT[1]);
-                        Console.WriteLine(positions);
+                        Console.WriteLine(p.Value);
                     }
                 }
             }

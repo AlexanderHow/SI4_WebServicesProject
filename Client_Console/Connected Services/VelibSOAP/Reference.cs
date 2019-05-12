@@ -28,16 +28,16 @@ namespace Client_Console.VelibSOAP {
         System.Threading.Tasks.Task<string> GetStationsCityAsync(string city);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IIntermediaryService/GetStation", ReplyAction="http://tempuri.org/IIntermediaryService/GetStationResponse")]
-        string GetStation(string idStation, string contractName);
+        string GetStation(string idStation, string city);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IIntermediaryService/GetStation", ReplyAction="http://tempuri.org/IIntermediaryService/GetStationResponse")]
-        System.Threading.Tasks.Task<string> GetStationAsync(string idStation, string contractName);
+        System.Threading.Tasks.Task<string> GetStationAsync(string idStation, string city);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IIntermediaryService/GetNbBikes", ReplyAction="http://tempuri.org/IIntermediaryService/GetNbBikesResponse")]
-        string GetNbBikes(string idStation, string contractName);
+        string GetNbBikes(string idStation, string city);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IIntermediaryService/GetNbBikes", ReplyAction="http://tempuri.org/IIntermediaryService/GetNbBikesResponse")]
-        System.Threading.Tasks.Task<string> GetNbBikesAsync(string idStation, string contractName);
+        System.Threading.Tasks.Task<string> GetNbBikesAsync(string idStation, string city);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IIntermediaryService/GetNbBikesCity", ReplyAction="http://tempuri.org/IIntermediaryService/GetNbBikesCityResponse")]
         string GetNbBikesCity(string city);
@@ -46,10 +46,10 @@ namespace Client_Console.VelibSOAP {
         System.Threading.Tasks.Task<string> GetNbBikesCityAsync(string city);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IIntermediaryService/GetPosition", ReplyAction="http://tempuri.org/IIntermediaryService/GetPositionResponse")]
-        string GetPosition(string idStation, string contractName);
+        string GetPosition(string idStation, string city);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IIntermediaryService/GetPosition", ReplyAction="http://tempuri.org/IIntermediaryService/GetPositionResponse")]
-        System.Threading.Tasks.Task<string> GetPositionAsync(string idStation, string contractName);
+        System.Threading.Tasks.Task<string> GetPositionAsync(string idStation, string city);
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IIntermediaryService/GetPositions", ReplyAction="http://tempuri.org/IIntermediaryService/GetPositionsResponse")]
         string GetPositions(string city);
@@ -57,17 +57,17 @@ namespace Client_Console.VelibSOAP {
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IIntermediaryService/GetPositions", ReplyAction="http://tempuri.org/IIntermediaryService/GetPositionsResponse")]
         System.Threading.Tasks.Task<string> GetPositionsAsync(string city);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IIntermediaryService/GetContracts", ReplyAction="http://tempuri.org/IIntermediaryService/GetContractsResponse")]
-        string GetContracts();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IIntermediaryService/GetCities", ReplyAction="http://tempuri.org/IIntermediaryService/GetCitiesResponse")]
+        string GetCities();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IIntermediaryService/GetContracts", ReplyAction="http://tempuri.org/IIntermediaryService/GetContractsResponse")]
-        System.Threading.Tasks.Task<string> GetContractsAsync();
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IIntermediaryService/GetCities", ReplyAction="http://tempuri.org/IIntermediaryService/GetCitiesResponse")]
+        System.Threading.Tasks.Task<string> GetCitiesAsync();
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IIntermediaryService/GetContract", ReplyAction="http://tempuri.org/IIntermediaryService/GetContractResponse")]
-        string GetContract(string contractName);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IIntermediaryService/GetCity", ReplyAction="http://tempuri.org/IIntermediaryService/GetCityResponse")]
+        string GetCity(string city);
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IIntermediaryService/GetContract", ReplyAction="http://tempuri.org/IIntermediaryService/GetContractResponse")]
-        System.Threading.Tasks.Task<string> GetContractAsync(string contractName);
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IIntermediaryService/GetCity", ReplyAction="http://tempuri.org/IIntermediaryService/GetCityResponse")]
+        System.Threading.Tasks.Task<string> GetCityAsync(string city);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -113,20 +113,20 @@ namespace Client_Console.VelibSOAP {
             return base.Channel.GetStationsCityAsync(city);
         }
         
-        public string GetStation(string idStation, string contractName) {
-            return base.Channel.GetStation(idStation, contractName);
+        public string GetStation(string idStation, string city) {
+            return base.Channel.GetStation(idStation, city);
         }
         
-        public System.Threading.Tasks.Task<string> GetStationAsync(string idStation, string contractName) {
-            return base.Channel.GetStationAsync(idStation, contractName);
+        public System.Threading.Tasks.Task<string> GetStationAsync(string idStation, string city) {
+            return base.Channel.GetStationAsync(idStation, city);
         }
         
-        public string GetNbBikes(string idStation, string contractName) {
-            return base.Channel.GetNbBikes(idStation, contractName);
+        public string GetNbBikes(string idStation, string city) {
+            return base.Channel.GetNbBikes(idStation, city);
         }
         
-        public System.Threading.Tasks.Task<string> GetNbBikesAsync(string idStation, string contractName) {
-            return base.Channel.GetNbBikesAsync(idStation, contractName);
+        public System.Threading.Tasks.Task<string> GetNbBikesAsync(string idStation, string city) {
+            return base.Channel.GetNbBikesAsync(idStation, city);
         }
         
         public string GetNbBikesCity(string city) {
@@ -137,12 +137,12 @@ namespace Client_Console.VelibSOAP {
             return base.Channel.GetNbBikesCityAsync(city);
         }
         
-        public string GetPosition(string idStation, string contractName) {
-            return base.Channel.GetPosition(idStation, contractName);
+        public string GetPosition(string idStation, string city) {
+            return base.Channel.GetPosition(idStation, city);
         }
         
-        public System.Threading.Tasks.Task<string> GetPositionAsync(string idStation, string contractName) {
-            return base.Channel.GetPositionAsync(idStation, contractName);
+        public System.Threading.Tasks.Task<string> GetPositionAsync(string idStation, string city) {
+            return base.Channel.GetPositionAsync(idStation, city);
         }
         
         public string GetPositions(string city) {
@@ -153,20 +153,20 @@ namespace Client_Console.VelibSOAP {
             return base.Channel.GetPositionsAsync(city);
         }
         
-        public string GetContracts() {
-            return base.Channel.GetContracts();
+        public string GetCities() {
+            return base.Channel.GetCities();
         }
         
-        public System.Threading.Tasks.Task<string> GetContractsAsync() {
-            return base.Channel.GetContractsAsync();
+        public System.Threading.Tasks.Task<string> GetCitiesAsync() {
+            return base.Channel.GetCitiesAsync();
         }
         
-        public string GetContract(string contractName) {
-            return base.Channel.GetContract(contractName);
+        public string GetCity(string city) {
+            return base.Channel.GetCity(city);
         }
         
-        public System.Threading.Tasks.Task<string> GetContractAsync(string contractName) {
-            return base.Channel.GetContractAsync(contractName);
+        public System.Threading.Tasks.Task<string> GetCityAsync(string city) {
+            return base.Channel.GetCityAsync(city);
         }
     }
 }

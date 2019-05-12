@@ -3,7 +3,7 @@ D:\Documents\POLYTECH\SI4\SI4_WebServicesProject\Client_Console\bin\Debug\Client
 D:\Documents\POLYTECH\SI4\SI4_WebServicesProject\Client_Console\bin\Debug\Client_Console.pdb
 D:\Documents\POLYTECH\SI4\SI4_WebServicesProject\Client_Console\bin\Debug\Newtonsoft.Json.dll
 D:\Documents\POLYTECH\SI4\SI4_WebServicesProject\Client_Console\bin\Debug\Newtonsoft.Json.xml
-D:\Documents\POLYTECH\SI4\SI4_WebServicesProject\Client_Console\obj\Debug\Client_Console.csprojResolveAssemblyReference.cache
 D:\Documents\POLYTECH\SI4\SI4_WebServicesProject\Client_Console\obj\Debug\Client_Console.csproj.CoreCompileInputs.cache
 D:\Documents\POLYTECH\SI4\SI4_WebServicesProject\Client_Console\obj\Debug\Client_Console.exe
 D:\Documents\POLYTECH\SI4\SI4_WebServicesProject\Client_Console\obj\Debug\Client_Console.pdb
+D:\Documents\POLYTECH\SI4\SI4_WebServicesProject\Client_Console\obj\Debug\Client_Console.csprojResolveAssemblyReference.cache
