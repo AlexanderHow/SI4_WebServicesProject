@@ -9,13 +9,13 @@ using System.Threading.Tasks;
 namespace IntermediaryWS
 {
     [ServiceContract]
-    public interface IIntermerdiaryService
+    public interface IIntermediaryService
     {
         [OperationContract]
         Task<string> GetStations();
 
         [OperationContract]
-        Task<string> GetStations(string city);
+        Task<string> GetStationsCity(string city);
 
         [OperationContract]
         Task<string> GetStation(string idStation, string contractName);
@@ -24,7 +24,7 @@ namespace IntermediaryWS
         Task<string> GetNbBikes(string idStation, string contractName);
 
         [OperationContract]
-        Task<string> GetNbBikes(string city);
+        Task<string> GetNbBikesCity(string city);
 
         [OperationContract]
         Task<string> GetPosition(string idStation, string contractName);

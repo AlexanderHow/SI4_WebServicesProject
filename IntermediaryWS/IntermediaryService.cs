@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 namespace IntermediaryWS
 {
 
-    public class IntermediaryService : IIntermerdiaryService
+    public class IntermediaryService : IIntermediaryService
     {
         private static List<string> defaultInitCache = new List<string>() { "stations" };
         private CacheManager cache = new CacheManager(defaultInitCache);
@@ -17,7 +17,7 @@ namespace IntermediaryWS
         public IntermediaryService()
         {
             //connection
-            //adresse reference = http://localhost:8733/IntermediaryWS
+            //adresse reference = http://localhost:8733/IntermediaryWS/
         }
 
         public async Task<string> GetContract(string contractName)
@@ -43,7 +43,7 @@ namespace IntermediaryWS
             return result;
         }
 
-        public async Task<string> GetNbBikes(string city)
+        public async Task<string> GetNbBikesCity(string city)
         {
             Dictionary<string, string> addParam = new Dictionary<string, string>();
             addParam.Add("contract_name", city.ToLower());
@@ -82,7 +82,7 @@ namespace IntermediaryWS
             return result;
         }
 
-        public async Task<string> GetStations(string city)
+        public async Task<string> GetStationsCity(string city)
         {
             Dictionary<string, string> addParam = new Dictionary<string, string>();
             addParam.Add("contract_name", city.ToLower());
