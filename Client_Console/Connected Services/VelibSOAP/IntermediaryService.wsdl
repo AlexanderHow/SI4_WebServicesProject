@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="IntermediaryService" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:8733/IntermediaryWS?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:8733/IntermediaryWS?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IIntermediaryService_GetStations_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStations" />
+  </wsdl:message>
+  <wsdl:message name="IIntermediaryService_GetStations_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStationsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIntermediaryService_GetStationsCity_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStationsCity" />
+  </wsdl:message>
+  <wsdl:message name="IIntermediaryService_GetStationsCity_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStationsCityResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIntermediaryService_GetStation_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetStation" />
+  </wsdl:message>
+  <wsdl:message name="IIntermediaryService_GetStation_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetStationResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIntermediaryService_GetNbBikes_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNbBikes" />
+  </wsdl:message>
+  <wsdl:message name="IIntermediaryService_GetNbBikes_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNbBikesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIntermediaryService_GetNbBikesCity_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetNbBikesCity" />
+  </wsdl:message>
+  <wsdl:message name="IIntermediaryService_GetNbBikesCity_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetNbBikesCityResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIntermediaryService_GetPosition_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPosition" />
+  </wsdl:message>
+  <wsdl:message name="IIntermediaryService_GetPosition_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPositionResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIntermediaryService_GetPositions_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetPositions" />
+  </wsdl:message>
+  <wsdl:message name="IIntermediaryService_GetPositions_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetPositionsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIntermediaryService_GetContracts_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetContracts" />
+  </wsdl:message>
+  <wsdl:message name="IIntermediaryService_GetContracts_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetContractsResponse" />
+  </wsdl:message>
+  <wsdl:message name="IIntermediaryService_GetContract_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetContract" />
+  </wsdl:message>
+  <wsdl:message name="IIntermediaryService_GetContract_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetContractResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IIntermediaryService">
+    <wsdl:operation name="GetStations">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIntermediaryService/GetStations" message="tns:IIntermediaryService_GetStations_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IIntermediaryService/GetStationsResponse" message="tns:IIntermediaryService_GetStations_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStationsCity">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIntermediaryService/GetStationsCity" message="tns:IIntermediaryService_GetStationsCity_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IIntermediaryService/GetStationsCityResponse" message="tns:IIntermediaryService_GetStationsCity_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetStation">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIntermediaryService/GetStation" message="tns:IIntermediaryService_GetStation_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IIntermediaryService/GetStationResponse" message="tns:IIntermediaryService_GetStation_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNbBikes">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIntermediaryService/GetNbBikes" message="tns:IIntermediaryService_GetNbBikes_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IIntermediaryService/GetNbBikesResponse" message="tns:IIntermediaryService_GetNbBikes_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetNbBikesCity">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIntermediaryService/GetNbBikesCity" message="tns:IIntermediaryService_GetNbBikesCity_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IIntermediaryService/GetNbBikesCityResponse" message="tns:IIntermediaryService_GetNbBikesCity_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPosition">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIntermediaryService/GetPosition" message="tns:IIntermediaryService_GetPosition_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IIntermediaryService/GetPositionResponse" message="tns:IIntermediaryService_GetPosition_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetPositions">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIntermediaryService/GetPositions" message="tns:IIntermediaryService_GetPositions_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IIntermediaryService/GetPositionsResponse" message="tns:IIntermediaryService_GetPositions_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetContracts">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIntermediaryService/GetContracts" message="tns:IIntermediaryService_GetContracts_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IIntermediaryService/GetContractsResponse" message="tns:IIntermediaryService_GetContracts_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetContract">
+      <wsdl:input wsaw:Action="http://tempuri.org/IIntermediaryService/GetContract" message="tns:IIntermediaryService_GetContract_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IIntermediaryService/GetContractResponse" message="tns:IIntermediaryService_GetContract_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IIntermediaryService" type="tns:IIntermediaryService">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetStations">
+      <soap:operation soapAction="http://tempuri.org/IIntermediaryService/GetStations" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStationsCity">
+      <soap:operation soapAction="http://tempuri.org/IIntermediaryService/GetStationsCity" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetStation">
+      <soap:operation soapAction="http://tempuri.org/IIntermediaryService/GetStation" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNbBikes">
+      <soap:operation soapAction="http://tempuri.org/IIntermediaryService/GetNbBikes" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetNbBikesCity">
+      <soap:operation soapAction="http://tempuri.org/IIntermediaryService/GetNbBikesCity" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPosition">
+      <soap:operation soapAction="http://tempuri.org/IIntermediaryService/GetPosition" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetPositions">
+      <soap:operation soapAction="http://tempuri.org/IIntermediaryService/GetPositions" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetContracts">
+      <soap:operation soapAction="http://tempuri.org/IIntermediaryService/GetContracts" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetContract">
+      <soap:operation soapAction="http://tempuri.org/IIntermediaryService/GetContract" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="IntermediaryService">
+    <wsdl:port name="BasicHttpBinding_IIntermediaryService" binding="tns:BasicHttpBinding_IIntermediaryService">
+      <soap:address location="http://localhost:8733/IntermediaryWS" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

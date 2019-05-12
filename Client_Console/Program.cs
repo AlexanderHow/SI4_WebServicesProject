@@ -19,8 +19,8 @@ namespace Client_Console
             Console.WriteLine("villes --- liste des villes disponibles");
             Console.WriteLine("stations --- liste de toutes les stations");
             Console.WriteLine("stations <ville> --- liste des stations d'une ville");
-            Console.WriteLine("velibs <station> --- nombre de velibs sur une station");
-            Console.WriteLine("velibs <ville> --- nombre de velibs sur une ville");
+            Console.WriteLine("velibS <station> --- nombre de velibs sur une station");
+            Console.WriteLine("velibC <ville> --- nombre de velibs sur une ville");
             Console.WriteLine("position <station> --- position d'une station");
             Console.WriteLine("positions <ville> --- position des stations d'une ville");
             Console.WriteLine("quitter --- quitter l'application");
@@ -44,8 +44,48 @@ namespace Client_Console
                 }
                 else if (argsT[0] == "stations")
                 {
-                    string station = serviceClient.GetStations();
-                    Console.WriteLine(station);
+                    if (argsT.Length > 1 && argsT.Length < 3)
+                    {
+                        string station = serviceClient.GetStationsCity(argsT[1]);
+                        Console.WriteLine(station);
+                    }
+                    else
+                    {
+                        string station = serviceClient.GetStations();
+                        Console.WriteLine(station);
+                    }
+                }
+                else if (argsT[0] == "velibS")
+                {
+                    if (argsT.Length > 1 && argsT.Length < 3)
+                    {
+                        //string dispo = serviceClient.GetNbBikes(argsT[1]);
+                        //Console.WriteLine(dispo);
+                    }
+                }
+                else if (argsT[0] == "velibC")
+                {
+                    if (argsT.Length > 1 && argsT.Length < 3)
+                    {
+                        string dispo = serviceClient.GetNbBikesCity(argsT[1]);
+                        Console.WriteLine(dispo);
+                    }
+                }
+                else if (argsT[0] == "position")
+                {
+                    if (argsT.Length > 1 && argsT.Length < 3)
+                    {
+                        //string position = serviceClient.GetPosition(argsT[1]);
+                        //Console.WriteLine(position);
+                    }
+                }
+                else if (argsT[0] == "velibC")
+                {
+                    if (argsT.Length > 1 && argsT.Length < 3)
+                    {
+                        string positions = serviceClient.GetPositions(argsT[1]);
+                        Console.WriteLine(positions);
+                    }
                 }
             }
         }
