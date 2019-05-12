@@ -18,7 +18,7 @@ namespace IntermediaryWS
         private Dictionary<String, String> cache = new Dictionary<string, string>();
         private List<String> defaultRequestList = new List<string>();
 
-        public Class1(List<String> defaultRqts)
+        public CacheManager(List<String> defaultRqts)
         {
             this.defaultRequestList.AddRange(defaultRqts);
             intiCache();
