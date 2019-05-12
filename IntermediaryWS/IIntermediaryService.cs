@@ -18,25 +18,25 @@ namespace IntermediaryWS
         Task<string> GetStationsCity(string city);
 
         [OperationContract]
-        Task<string> GetStation(string idStation, string contractName);
+        Task<string> GetStation(string idStation, string city);
 
         [OperationContract]
-        Task<string> GetNbBikes(string idStation, string contractName);
+        Task<string> GetNbBikes(string idStation, string city);
 
         [OperationContract]
         Task<string> GetNbBikesCity(string city);
 
         [OperationContract]
-        Task<string> GetPosition(string idStation, string contractName);
+        Task<string> GetPosition(string idStation, string city);
 
         [OperationContract]
         Task<string> GetPositions(string city);
 
         [OperationContract]
-        Task<string> GetContracts();
+        Task<string> GetCities();
 
         [OperationContract]
-        Task<string> GetContract(string contractName);
+        Task<string> GetCity(string city);
     }
 
     // Utilisez un contrat de données comme indiqué dans l'exemple ci-après pour ajouter les types composites aux opérations de service.

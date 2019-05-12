@@ -12,7 +12,6 @@ D:\Documents\POLYTECH\SI4\SI4_WebServicesProject\IntermediaryWS\bin\Debug\Interm
 D:\Documents\POLYTECH\SI4\SI4_WebServicesProject\IntermediaryWS\bin\Debug\IntermediaryWS.pdb
 D:\Documents\POLYTECH\SI4\SI4_WebServicesProject\IntermediaryWS\bin\Debug\Newtonsoft.Json.dll
 D:\Documents\POLYTECH\SI4\SI4_WebServicesProject\IntermediaryWS\bin\Debug\Newtonsoft.Json.xml
-D:\Documents\POLYTECH\SI4\SI4_WebServicesProject\IntermediaryWS\obj\Debug\IntermediaryWS.csprojResolveAssemblyReference.cache
 D:\Documents\POLYTECH\SI4\SI4_WebServicesProject\IntermediaryWS\obj\Debug\IntermediaryWS.csproj.CoreCompileInputs.cache
 D:\Documents\POLYTECH\SI4\SI4_WebServicesProject\IntermediaryWS\obj\Debug\IntermediaryWS.dll
 D:\Documents\POLYTECH\SI4\SI4_WebServicesProject\IntermediaryWS\obj\Debug\IntermediaryWS.pdb

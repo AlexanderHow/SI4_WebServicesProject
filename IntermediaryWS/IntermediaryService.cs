@@ -20,25 +20,25 @@ namespace IntermediaryWS
             //adresse reference = http://localhost:8733/IntermediaryWS/
         }
 
-        public async Task<string> GetContract(string contractName)
+        public async Task<string> GetCity(string city)
         {
             Dictionary<string, string> addParam = new Dictionary<string, string>();
-            addParam.Add("name", contractName);
+            addParam.Add("name", city);
             string result = await cache.manageRequest("contracts", addParam);
             return result;
         }
 
-        public async Task<string> GetContracts()
+        public async Task<string> GetCities()
         {
             Dictionary<string, string> addParam = new Dictionary<string, string>();
             string result = await cache.manageRequest("contracts", addParam);
             return result;
         }
 
-        public async Task<string> GetNbBikes(string idStation, string contractName)
+        public async Task<string> GetNbBikes(string idStation, string city)
         {
             Dictionary<string, string> addParam = new Dictionary<string, string>();
-            addParam.Add("contract_name", contractName.ToLower());
+            addParam.Add("contract_name", city.ToLower());
             string result = await cache.manageRequest("stations/" + idStation + "/available_bikes", addParam);
             return result;
         }
@@ -51,10 +51,10 @@ namespace IntermediaryWS
             return result;
         }
 
-        public async Task<string> GetPosition(string idStation, string contractName)
+        public async Task<string> GetPosition(string idStation, string city)
         {
             Dictionary<string, string> addParam = new Dictionary<string, string>();
-            addParam.Add("contract_name", contractName.ToLower());
+            addParam.Add("contract_name", city.ToLower());
             string result = await cache.manageRequest("stations/" + idStation + "/position", addParam);
             return result;
         }
@@ -67,10 +67,10 @@ namespace IntermediaryWS
             return result;
         }
 
-        public async Task<string> GetStation(string idStation, string contractName)
+        public async Task<string> GetStation(string idStation, string city)
         {
             Dictionary<string, string> addParam = new Dictionary<string, string>();
-            addParam.Add("contract_name", contractName.ToLower());
+            addParam.Add("contract_name", city.ToLower());
             string result = await cache.manageRequest("stations/"+idStation, addParam);
             return result;
         }
