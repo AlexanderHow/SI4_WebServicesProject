@@ -29,7 +29,7 @@
         </asp:ScriptManager>
         <header>
             <nav class="navbar navbar-light bg-light">
-              <span class="navbar-brand mb-0 h1">Velib WS</span>
+              <a href="/" class="navbar-brand mb-0 h1">Velib WS</a>
             </nav>
         </header>
         <div id="body">
@@ -37,11 +37,6 @@
                 <asp:ContentPlaceHolder runat="server" ID="MainContent" />
             </section>
         </div>
-        <footer class="footer mt-auto py-3">
-          <div class="container">
-            <span class="text-muted"> &copy; <%: DateTime.Now.Year %> - Olivia OSGART - Alexandre HOWARD</span>
-          </div>
-        </footer>
     </form>
 </body>
 </html>

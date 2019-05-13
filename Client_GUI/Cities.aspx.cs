@@ -15,10 +15,14 @@ public partial class Cities : System.Web.UI.Page
         {
             if (s.Contains("name") && !s.Contains("commercial"))
             {
-                string cityname = s.Substring(9);
-                string[] citynameCorrect = cityname.Split('\"');
+                string[] citynames = s.Split(':');
+                string cityname = citynames[1].Substring(1, citynames[1].Length - 2);
+                if (cityname.StartsWith("\""))
+                {
+                    cityname = cityname.Substring(1);
+                }
                 ListItem li = new ListItem();
-                li.Text = citynameCorrect[0].ToUpperInvariant();
+                li.Text = cityname.ToUpperInvariant();
                 li.Value = cityname;
                 if (list)
                 {

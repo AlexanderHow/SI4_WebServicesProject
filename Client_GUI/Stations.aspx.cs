@@ -18,10 +18,14 @@ public partial class Stations : System.Web.UI.Page
         {
             if (s.Contains("name") && !s.Contains("commercial"))
             {
-                string cityname = s.Substring(9);
-                string[] citynameCorrect = cityname.Split('\"');
+                string[] citynames = s.Split(':');
+                string cityname = citynames[1].Substring(1, citynames[1].Length - 2);
+                if (cityname.StartsWith("\""))
+                {
+                    cityname = cityname.Substring(1);
+                }
                 ListItem li = new ListItem();
-                li.Text = citynameCorrect[0].ToUpperInvariant();
+                li.Text = cityname.ToUpperInvariant();
                 li.Value = cityname;
                 DropDownList.Items.Add(li);
             }
@@ -33,12 +37,10 @@ public partial class Stations : System.Web.UI.Page
         string citynameU = DropDownList.SelectedItem.Text;
         ItemsBulletedList3.Items.Clear();
         ItemsBulletedList4.Items.Clear();
-        ItemsBulletedList5.Items.Clear();
-        ItemsBulletedList6.Items.Clear();
         string cityname = citynameU.ToLowerInvariant();
         string response = client.GetStationsCity(cityname);
         string[] stationsA = response.Split(',');
-        int i = 0;
+        Boolean list = false;
         foreach (string s in stationsA)
         {
             if (s.Contains("name") && !s.Contains("contract"))
@@ -48,25 +50,15 @@ public partial class Stations : System.Web.UI.Page
                 ListItem li = new ListItem();
                 li.Text = nameCorrect[0].ToUpperInvariant();
                 li.Value = nameCorrect[0];
-                if (i == 0)
+                if (list)
                 {
                     ItemsBulletedList3.Items.Add(li);
-                    i += 1;
+                    list = false;
                 }
-                else if (i == 1)
+                else
                 {
                     ItemsBulletedList4.Items.Add(li);
-                    i += 1;
-                }
-                else if (i == 2)
-                {
-                    ItemsBulletedList5.Items.Add(li);
-                    i += 1;
-                }
-                else if (i == 3)
-                {
-                    ItemsBulletedList6.Items.Add(li);
-                    i = 0;
+                    list = true;
                 }
             }
         }
