@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Client_Console.VelibSOAP;
+using Client_Console.Monitoring;
 using Newtonsoft.Json.Linq;
 
 namespace Client_Console
@@ -14,7 +15,7 @@ namespace Client_Console
         {
             IntermediaryServiceClient serviceClient = new IntermediaryServiceClient();
 
-            Console.WriteLine("Bienvenue sur la version console de Velib WS");
+            Console.WriteLine("---Bienvenue sur la version console de Velib WS---");
 
             Console.WriteLine("---Commandes disponibles---");
             Console.WriteLine("villes --- liste des villes disponibles");
@@ -22,6 +23,7 @@ namespace Client_Console
             Console.WriteLine("velibS <idstation> <ville> --- nombre de velibs disponibles sur une station");
             Console.WriteLine("velibC <ville> --- nombre de velibs disponibles sur une ville");
             Console.WriteLine("position <idstation> <ville>  --- position d'une station");
+            Console.WriteLine("monitoring --- accéder au menu Monitoring");
             Console.WriteLine("help --- afficher les commandes");
             Console.WriteLine("quitter --- quitter l'application");
 
@@ -29,7 +31,7 @@ namespace Client_Console
 
             while (true)
             {
-                Console.Write(">");
+                Console.Write(">>>");
 
                 input = Console.ReadLine();
                 string[] argsT = input.Split(' ');
@@ -50,8 +52,9 @@ namespace Client_Console
                     Console.WriteLine("velibS <idstation> <ville> --- nombre de velibs sur une station");
                     Console.WriteLine("velibC <ville> --- nombre de velibs sur une ville");
                     Console.WriteLine("position <idstation> <ville> --- position d'une station");
+                    Console.WriteLine("monitoring --- accéder au menu Monitoring");
                     Console.WriteLine("help --- afficher les commandes");
-                    Console.WriteLine("quitter --- quitter l'application");
+                    Console.WriteLine("quitter --- quitter l'application\n");
                 }
                 else if (argsT[0] == "villes")
                 {
@@ -64,7 +67,8 @@ namespace Client_Console
                     {
                         string stations = serviceClient.GetStationsCity(argsT[1]);
                         showCorrectData(stations, "name");
-                    } else
+                    }
+                    else
                     {
                         Console.WriteLine("Argument Manquant");
                     }
@@ -76,6 +80,10 @@ namespace Client_Console
                         string dispo = serviceClient.GetNbBikes(argsT[1], argsT[2]);
                         dispo = dispo.Substring(2, dispo.Length-3);
                         Console.WriteLine("Nombre de vélibs disponibles : " + dispo);
+                    }
+                    else
+                    {
+                        Console.WriteLine("Argument Manquant");
                     }
                 }
                 else if (argsT[0] == "velibC")
@@ -94,6 +102,10 @@ namespace Client_Console
                         }
                         Console.WriteLine("Nombre de vélibs disponibles à " + argsT[1] + " : " + nbVelib);
                     }
+                    else
+                    {
+                        Console.WriteLine("Argument Manquant");
+                    }
                 }
                 else if (argsT[0] == "position")
                 {
@@ -105,7 +117,20 @@ namespace Client_Console
                         Console.Write("Longitude : ");
                         showCorrectData(position, "lng");
                     }
+                    else
+                    {
+                        Console.WriteLine("Argument Manquant");
+                    }
                 }
+                else if (argsT[0] == "monitoring")
+                {
+                    handleMonitoring();
+                }
+                else
+                {
+                    Console.WriteLine("La commande entrée n'est pas prise en compte, tapez help pour voir les commandes disponibles");
+                }
+                Console.WriteLine("");
             }
         }
 
@@ -121,6 +146,75 @@ namespace Client_Console
                         Console.WriteLine(p.Value);
                     }
                 }
+            }
+        }
+
+        static void handleMonitoring()
+        {
+            string input = "";
+            MonitoringServiceClient monitor = new MonitoringServiceClient();
+
+            Console.WriteLine("Bienvenue sur la version monitoring de Velib WS");
+            Console.WriteLine("---Commandes disponibles---");
+            Console.WriteLine("rqtJCDCO --- nombre de requêtes effectuées vers l'API JCDECAUX");
+            Console.WriteLine("rqtCache --- nombre de requêtes effectuées depuis le cache");
+            Console.WriteLine("rqtTotal --- nombre total de requêtes effectuées");
+            Console.WriteLine("tmpMoyen --- temps moyen de réponse des requêtes effectuées");
+            Console.WriteLine("quit --- retourner au menu principal\n");
+
+            while (true)
+            {
+                Console.Write("Monitoring>");
+
+                input = Console.ReadLine();
+                string[] argsT = input.Split(' ');
+                if (argsT.Length < 1)
+                {
+                    continue;
+                }
+
+                if (argsT[0] == "quit")
+                {
+                    return;
+                }
+                else if (argsT[0] == "help")
+                {
+                    Console.WriteLine("---Commandes disponibles---");
+                    Console.WriteLine("rqtJCDCO --- nombre de requêtes effectuées vers l'API JCDECAUX");
+                    Console.WriteLine("rqtCache --- nombre de requêtes effectuées depuis le cache");
+                    Console.WriteLine("rqtTotal --- nombre total de requêtes effectuées");
+                    Console.WriteLine("tmpMoyen --- temps moyen de réponse des requêtes effectuées");
+                    Console.WriteLine("quit --- retourner au menu principal\n");
+                }
+                else if (argsT[0] == "rqtJCDCO")
+                {
+                    Console.WriteLine("  Nombre de requêtes effectuées vers l'API JCDCAUX : " + monitor.GetNbRqtToJCDCo());
+                    if (!(monitor.GetTotalRqt() == 0))
+                    {
+                        Console.WriteLine("  Soit un pourcentage de " + (monitor.GetNbRqtToJCDCo() / monitor.GetTotalRqt()) * 100 + " % des requêtes totales");
+                    }
+                }
+                else if (argsT[0] == "rqtCache")
+                {
+                    Console.WriteLine("  Nombre de requêtes effectuées vers le cache : " + monitor.GetNbRqtFromCache());
+                    if (!(monitor.GetTotalRqt() == 0))
+                    {
+                        Console.WriteLine("  Soit un pourcentage de " + (monitor.GetNbRqtFromCache() / monitor.GetTotalRqt()) * 100 + " % des requêtes totales");
+                    }
+                }
+                else if (argsT[0] == "rqtTotal")
+                {
+                    Console.WriteLine("  Nombre de total de requêtes effectuées : " + monitor.GetTotalRqt());
+                }
+                else if (argsT[0] == "tmpMoyen")
+                {
+                    Console.WriteLine("  Temps moyen de réponse pour une requête : " + monitor.GetAverageTimePerRqt() + " ms");
+                }
+                else
+                {
+                    Console.WriteLine("  La commande entrée n'est pas prise en compte, tapez help pour voir les commandes disponibles");
+                }
+                Console.WriteLine("");
             }
         }
     }
